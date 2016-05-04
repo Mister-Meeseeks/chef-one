@@ -5,9 +5,8 @@ Convenient extensions and wrappers to streamline Chef Zero commands.
 
 The command-line chef-client suffers from some annoying limitations, which makes the interface clunky. Among them:
 
-* No simple way to handle Berksfile dependencies. Requires separate Berkshelf commands.
-* On a single chef-zero run, easiest way to use Berkshelf is to vendor, but that requires multiple commands to 
-initialize and cleanup.
+* No simple way to handle Berksfile dependencies. Requires parrallel invocation of Berkshelf commands and setup.
+* Berkshelf install doesn't work with chef-client. On a single chef-zero run, easiest way to use Berkshelf is to manually vendor. But that requires the user to manually setup and tear-down on each run in a tedious and error-prone way.  
 * No support for the ./site-cookbooks, chef-repo application pattern. Chef-zero only recognizes cookbooks in an explicitly
 named cookbooks directory.
 * No support for standalone cookbooks. Leads to file-system boilerplate. Requires a cookbooks/ parent directory following the chef-repo pattern.
