@@ -32,3 +32,23 @@ bash$ echo "export PATH=$PATH:~/chef-one/bin/" >> ~/.bashrc
 bash$ bash   # Reset bash session with new PATH
 bash$ chef-one --help
 ```
+
+### Usage
+
+For standard chef-repo format:
+
+` bash$ chef-one [my_chef_repo]/cookbooks/[my_coobook]  [my_recipe]
+
+For site-cookbooks chef-app format:
+
+` bash$ chef-one [my_chef_repo]/site-cookbooks/[my_cookbook]  [my_recipe]
+
+For standalone cookbooks not in repo directory structure:
+
+` bash$ chef-one [my_cookbook]  [my_recipe]
+
+### Dependencies
+
+* chef-client (version >= 12.0)
+* berkshelf (version >= 4.0)
+* bash (can be invoked from any shell, but bash must be installed)
