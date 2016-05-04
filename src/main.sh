@@ -11,7 +11,7 @@ fi
 cookbookDir=$1
 recipeName=$2
 
-sandboxDir=$PWD/.sandbox/
+sandboxDir=$PWD/.chef_one_sandbox/
 sandboxCookbooksDir=$sandboxDir/cookbooks/
 
 function prepareSandbox() {
