@@ -57,7 +57,7 @@ For standalone cookbooks not in repo directory structure:
 
 chef-one acts as a wrapper, tracing the following work-flow on each call:
 
-1) Create a chef-repo sandbox at $PWD/.sandbox/
-2) Use Berkshelf to version the targeted cookbook and all dependencies in sandbox/cookbooks/
-3) Step into the sandbox and invoke the chef-zero client on the target recipe.
-4) After success or failure cleanup the sandbox directory.
+1. Create a chef-repo sandbox at $PWD/.sandbox/
+2. Use Berkshelf to version the targeted cookbook and all dependencies in sandbox/cookbooks/
+3. Step into the sandbox and invoke the chef-zero client on the target recipe.
+4. After success or failure cleanup the sandbox directory.
