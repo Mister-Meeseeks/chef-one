@@ -1,5 +1,13 @@
 #!/bin/bash -eu
 
+scriptDir=$(dirname $(readlink -f $0))
+
+if [[ $# -eq 0 || $1 == "--help" || $1 == "-h" ]] ; then
+    helpMsg=$scriptDir/help.txt
+    cat $helpMsg
+    exit 0
+fi
+
 cookbookDir=$1
 recipeName=$2
 

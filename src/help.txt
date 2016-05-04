@@ -1,0 +1,16 @@
+
+chef-one -- chef-client wrapper with a cleaner interface
+
+Usage: chef-one [--help]
+       chef-one [cookbook_path] [recipe_name]
+
+Description:
+chef-one will invoke the recipe found in the cookbook's namespace, and 
+automatically set up any Berkshelf generated dependencies. Calling the command
+will prepare and vendor the dependencies, run the chef recipe and cleanup any
+intermediate files related to the run. No other ancillary command needed.
+
+cookbook_path can be any valid chef cookbook with a Berksfile. It does not need
+to be in a cookbooks/ parent directory. recipe_name can be any recipe found in
+the specified cookbook or its included dependencies.
+
