@@ -27,6 +27,18 @@ sandboxCookbooksDir=$sandboxDir/cookbooks/
 
 function prepareSandbox() {
     mkdir -p $sandboxCookbooksDir
+    sandboxDataBags
+}
+
+function sandboxDataBags() {
+    local targetDatabagDir=$(extractTargetDatabag)
+    if [[ -d $targetDatabagDir ]] ; then
+	cp -r $targetDatabagDir $sandbagDir/
+    fi
+}
+
+function extractTargetDatabag() {
+    echo $(dirname $(dirname $cookbookDir))/data_bags/
 }
 
 function versionBerks() {
