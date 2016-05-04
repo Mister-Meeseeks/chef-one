@@ -24,7 +24,7 @@ overkill for simple deployement schemes.
 ### Quickstart
 
 chef-one is a light-weight shell script wrapper around the chef-client. There are no binaries or libraries that need to be
-installed at the system level. Simply clone the repo in anywhere in the file system, point your shell at the bin, and invoke the command. Assuming you're using bash shell:
+installed at the system level. Simply clone the repo anywhere in your file system, make the shell aware of the bin script, and invoke the command. Aliasing the bin, exporting the repo's bin dir, or sym-linking the bin to an existing PATH directory are all working options. Assuming you're using bash shell and decide to export:
 
 ```
 bash$ git clone https://github.com/Mister-Meeseeks/chef-one.git ~
@@ -35,17 +35,21 @@ bash$ chef-one --help
 
 ### Usage
 
-For standard chef-repo format:
+For standard chef-repo format w/ default recipe:
 
+    bash$ chef-one [my_chef_repo]/cookbooks/[my_coobook]
+
+For chef-repo with specified recipe:
+    
     bash$ chef-one [my_chef_repo]/cookbooks/[my_coobook]  [my_recipe]
 
 For site-cookbooks chef-app format:
 
     bash$ chef-one [my_chef_repo]/site-cookbooks/[my_cookbook]  [my_recipe]
 
-For standalone cookbooks not in repo directory structure:
+For standalone cookbooks not in repo directory structure w/ default recipe:
 
-    bash$ chef-one [my_cookbook]  [my_recipe]
+    bash$ chef-one [my_cookbook]
 
 ### Dependencies
 
