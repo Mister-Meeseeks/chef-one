@@ -2,6 +2,7 @@
 chef-one -- chef-client wrapper with a cleaner interface
 
 Usage: chef-one [--help]
+       chef-one [cookbook_path]
        chef-one [cookbook_path] [recipe_name]
 
 Description:
@@ -14,3 +15,5 @@ cookbook_path can be any valid chef cookbook with a Berksfile. It does not need
 to be in a cookbooks/ parent directory. recipe_name can be any recipe found in
 the specified cookbook or its included dependencies.
 
+recipe_name is an optional positional argument. If left blank will use 
+coobook's default recipe.
