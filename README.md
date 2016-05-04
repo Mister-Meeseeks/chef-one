@@ -1,7 +1,7 @@
 # chef-one
 Convenient extensions and wrappers to streamline Chef Zero commands.
 
-### Motivations
+### Motivation
 
 The command-line chef-client suffers from some annoying limitations, which makes the interface clunky. Among them:
 
@@ -27,8 +27,8 @@ chef-one is a light-weight shell script wrapper around the chef-client. There ar
 installed at the system level. Simply clone the repo in anywhere in the file system, point your shell at the bin, and invoke the command. Assuming you're using bash shell:
 
 ```
-bash$ git clone git@github.com:Mister-Meeseeks/chef-one.git ~
-bash$ echo "export PATH=$PATH:~/chef-one/bin/" >> ~/.bashrc
+bash$ git clone https://github.com/Mister-Meeseeks/chef-one.git ~
+bash$ echo "export PATH=\$PATH:~/chef-one/bin/" >> ~/.bashrc
 bash$ bash   # Reset bash session with new PATH
 bash$ chef-one --help
 ```
