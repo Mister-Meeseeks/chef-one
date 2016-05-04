@@ -12,7 +12,7 @@ cookbookDir=$1
 recipeName=$2
 
 sandboxDir=$PWD/.sandbox/
-sandboxCookbooksDir=$sandboxDir/
+sandboxCookbooksDir=$sandboxDir/cookbooks/
 
 function prepareSandbox() {
     mkdir -p $sandboxCookbooksDir
@@ -35,7 +35,8 @@ function runRecipe() {
 }
 
 function runRecipeClean() {
-    runRecipe || cleanupSandbox
+    (runRecipe && cleanupSandbox) \
+	|| cleanupSandbox
 }
 
 function cleanupSandbox() {
