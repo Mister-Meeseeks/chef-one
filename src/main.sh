@@ -9,7 +9,18 @@ if [[ $# -eq 0 || $1 == "--help" || $1 == "-h" ]] ; then
 fi
 
 cookbookDir=$1
-recipeName=$2
+
+recipeName=""
+if [[ $# -gt 1 ]] ; then
+    recipeName=$2
+fi
+
+cookbookName=$(basename $cookbookDir)
+if [[ -z $recipeName ]] ; then
+    runItem=$cookbookName
+else
+    runItem=$cookbookName::$recipeName
+fi
 
 sandboxDir=$PWD/.chef_one_sandbox/
 sandboxCookbooksDir=$sandboxDir/cookbooks/
@@ -25,7 +36,7 @@ function versionBerks() {
 
 function runCapsuledRecipe() {
     cd $sandboxDir
-    chef-client -z -o $recipeName
+    chef-client -z -o $runItem
 }
 
 function runRecipe() {
