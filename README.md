@@ -10,6 +10,7 @@ The command-line chef-client suffers from some annoying limitations, which makes
 initialize and cleanup.
 * No support for the ./site-cookbooks, chef-repo application pattern. Chef-zero only recognizes cookbooks in an explicitly
 named cookbooks directory.
+* No support for standalone cookbooks. Leads to file-system boilerplate. Requires a cookbooks/ parent directory following the chef-repo pattern.
 
 chef-one acts as a wrapper to chef-client, handling the above in a single-command interface pattern. Simply point it to a 
 cookbook in any directory, anywhere with a valid Berksfile and it runs any valid recipe.
