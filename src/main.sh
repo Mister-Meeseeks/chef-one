@@ -33,7 +33,7 @@ function prepareSandbox() {
 function sandboxDataBags() {
     local targetDatabagDir=$(extractTargetDatabag)
     if [[ -d $targetDatabagDir ]] ; then
-	cp -r $targetDatabagDir $sandbagDir/
+	cp -r $targetDatabagDir $sandboxDir/
     fi
 }
 
