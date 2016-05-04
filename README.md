@@ -37,18 +37,27 @@ bash$ chef-one --help
 
 For standard chef-repo format:
 
-` bash$ chef-one [my_chef_repo]/cookbooks/[my_coobook]  [my_recipe]
+    bash$ chef-one [my_chef_repo]/cookbooks/[my_coobook]  [my_recipe]
 
 For site-cookbooks chef-app format:
 
-` bash$ chef-one [my_chef_repo]/site-cookbooks/[my_cookbook]  [my_recipe]
+    bash$ chef-one [my_chef_repo]/site-cookbooks/[my_cookbook]  [my_recipe]
 
 For standalone cookbooks not in repo directory structure:
 
-` bash$ chef-one [my_cookbook]  [my_recipe]
+    bash$ chef-one [my_cookbook]  [my_recipe]
 
 ### Dependencies
 
 * chef-client (version >= 12.0)
 * berkshelf (version >= 4.0)
 * bash (can be invoked from any shell, but bash must be installed)
+
+### Internals
+
+chef-one acts as a wrapper, tracing the following work-flow on each call:
+
+1) Create a chef-repo sandbox at $PWD/.sandbox/
+2) Use Berkshelf to version the targeted cookbook and all dependencies in sandbox/cookbooks/
+3) Step into the sandbox and invoke the chef-zero client on the target recipe.
+4) After success or failure cleanup the sandbox directory.
