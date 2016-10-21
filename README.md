@@ -34,7 +34,7 @@ bash$ chef-one --help
 
 ### Install
 
-To permanetely install in a system PATH directory, clone the repo to some permanent location. Then run the install.sh script, to create an executable (by default in /usr/local/bin/)
+To permanetely install in a system PATH directory, clone the repo to some permanent location. Then run the install.sh script, to create an executable (by default in /usr/local/bin/).
 
 ```
 bash$ sudo git clone https://github.com/Mister-Meeseeks/chef-one.git /usr/local/src/
@@ -46,6 +46,8 @@ To install in specific directory instead
 ```
 bash$ sudo /usr/local/src/install.sh [install directory]
 ```
+
+Make sure to clone the install repo in a permanent location (like /usr/local/src) and don't remove. The installed binary is a sym-link to the repo, so removing the repo will break the command.
 
 ### Usage
 
