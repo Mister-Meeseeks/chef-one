@@ -28,9 +28,23 @@ installed at the system level. Simply clone the repo anywhere in your file syste
 
 ```
 bash$ git clone https://github.com/Mister-Meeseeks/chef-one.git ~
-bash$ echo "export PATH=\$PATH:~/chef-one/bin/" >> ~/.bashrc
-bash$ bash   # Reset bash session with new PATH
+bash$ export PATH=$PATH:~/chef-one/bin/
 bash$ chef-one --help
+```
+
+### Install
+
+To permanetely install in a system PATH directory, clone the repo to some permanent location. Then run the install.sh script, to create an executable (by default in /usr/local/bin/)
+
+```
+bash$ sudo git clone https://github.com/Mister-Meeseeks/chef-one.git /usr/local/src/
+bash$ sudo /usr/local/src/install.sh
+```
+
+To install in specific directory instead
+
+```
+bash$ sudo /usr/local/src/install.sh [install directory]
 ```
 
 ### Usage
