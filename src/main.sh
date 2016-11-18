@@ -8,7 +8,7 @@ if [[ $# -eq 0 || $1 == "--help" || $1 == "-h" ]] ; then
     exit 0
 fi
 
-dataBagDir=""
+dataBagDir=/dev/null
 if [[ $1 == "--bags" ]] ; then
     dataBagDir=$2
     shift 2;
