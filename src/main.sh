@@ -38,6 +38,7 @@ function prepareSandbox() {
 }
 
 function sandboxDataBags() {
+    mkdir -p $sandboxDatabagDir
     sandboxDataBagDir $(extractBookRelativeBag)
     sandboxDataBagDir $dataBagDir
 }
@@ -79,3 +80,4 @@ function cleanupSandbox() {
 }
 
 runRecipeClean
+
