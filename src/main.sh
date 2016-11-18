@@ -8,6 +8,12 @@ if [[ $# -eq 0 || $1 == "--help" || $1 == "-h" ]] ; then
     exit 0
 fi
 
+dataBagDir=""
+if [[ $1 == "--bags" ]] ; then
+    dataBagDir=$2
+    shift 2;
+fi
+
 cookbookDir=$1
 
 recipeName=""
@@ -24,6 +30,7 @@ fi
 
 sandboxDir=$PWD/.chef_one_sandbox/
 sandboxCookbooksDir=$sandboxDir/cookbooks/
+sandboxDatabagDir=$sandboxDir/data_bags/
 
 function prepareSandbox() {
     mkdir -p $sandboxCookbooksDir
@@ -31,13 +38,18 @@ function prepareSandbox() {
 }
 
 function sandboxDataBags() {
-    local targetDatabagDir=$(extractTargetDatabag)
+    sandboxDataBagDir $(extractBookRelativeBag)
+    sandboxDataBagDir $dataBagDir
+}
+
+function sandboxDataBagDir() {
+    local targetDatabagDir=$1
     if [[ -d $targetDatabagDir ]] ; then
-	cp -r $targetDatabagDir $sandboxDir/
+	cp -r $targetDatabagDir/* $sandboxDatabagDir/
     fi
 }
 
-function extractTargetDatabag() {
+function extractBookRelativeBag() {
     echo $(dirname $(dirname $cookbookDir))/data_bags/
 }
 

@@ -2,8 +2,8 @@
 chef-one -- chef-client wrapper with a cleaner interface
 
 Usage: chef-one [--help]
-       chef-one [cookbook_path]
-       chef-one [cookbook_path] [recipe_name]
+       chef-one [--bags [databag_dir]] [cookbook_path]
+       chef-one [--bags [databag_dir]] [cookbook_path] [recipe_name]
 
 Description:
 chef-one will invoke the recipe found in the cookbook's namespace, and 
@@ -17,3 +17,18 @@ the specified cookbook or its included dependencies.
 
 recipe_name is an optional positional argument. If left blank will use 
 coobook's default recipe.
+
+Databags can be imported from two possible sources. The first is implicit. Every
+run checks for a directory at [cookbook_path]/../../data_bags. I.e. this 
+conforms to the bag path in a traditional Chef project layout. If it doesn't 
+exist, then it's ignored.
+
+The second source is if the --bags flag is set. Data bags are imported from the
+path of the argument, as if it was the data_bags directory of the Chef project.
+Any bags in this directory override the implicit bag directory. The format of
+this directory must conform to the Chef bag directory, e.g.:
+  bag/
+    keys/
+      ssh.json
+    login/
+      s3.json
